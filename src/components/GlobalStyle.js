@@ -34,12 +34,30 @@ body {
 h1, h2, h3 {
         color: red;
         font-family: 'road_rageregular';
-        text-shadow: 5px 3px 8px navy;
+        text-shadow: 2px 2px 3px navy;
 }
 
-h1 { font-size: 5vh;
-
+${
+  "" /* h1, h2, h3 {
+  background: linear-gradient(orangered, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(3px 3px 3px navy);
+} */
 }
+
+h1 {
+    ${
+      "" /* background: linear-gradient(orangered, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(3px 3px 3px navy);
+    padding: 0 7px; */
+    }
+    color: red;
+  }
 
 h2 {
     font-size: 2.5rem;
@@ -50,8 +68,16 @@ h2 {
 }
 
 h3 {
+    ${
+      "" /* background: linear-gradient(orangered, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(3px 3px 3px navy); */
+    }
+    ${"" /* padding: 0 7px; */}
     font-size: 1.6rem;
-}
+  }
     
 
 label {

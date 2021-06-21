@@ -10,6 +10,18 @@ export const FadeIn = {
   },
 };
 
+const ButtonScale = {
+  hidden: {
+    scale: 0,
+  },
+  show: {
+    scale: [1.2, 1],
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
 export const FadeOut = {
   hidden: {
     opacity: 0,

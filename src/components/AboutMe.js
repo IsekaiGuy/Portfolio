@@ -83,16 +83,24 @@ const Container = styled(motion.div)`
 
   @media screen and (max-width: 700px) {
     background-image: none;
-    padding: 0 3rem;
     margin-top: 5rem;
+  }
+
+  @media screen and (max-width: 550px) {
+    margin-top: 2rem;
   }
 
   @media screen and (max-width: 500px) {
     p {
       font-size: 1rem;
     }
-    margin-top: 17vh;
-    padding: 0 1rem;
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: 400px) {
+    p {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -109,8 +117,8 @@ const Heading = styled(motion.h2)`
 
   @media screen and (max-width: 500px) {
     font-size: 2.4rem;
-    background: rgba(0, 0, 0, 0.8);
     padding-top: 3rem;
+    padding-bottom: 5vh;
     margin: 0;
     margin-top: 0rem;
   }
@@ -149,10 +157,11 @@ const MiddleText = styled(motion.div)`
 
   @media screen and (max-width: 700px) {
     margin: 0;
+    padding: 4% 8%;
   }
 
-  @media screen and (max-width: 500px) {
-    margin-top: -1px;
+  @media screen and (max-width: 400px) {
+    padding: 6%;
   }
 `;
 
@@ -172,6 +181,11 @@ const LeftText = styled(motion.div)`
 
   @media screen and (max-width: 700px) {
     margin: 0 0 0 0;
+    padding: 4% 8%;
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 6%;
   }
 `;
 
@@ -191,6 +205,11 @@ const RightText = styled(motion.div)`
 
   @media screen and (max-width: 700px) {
     margin: 0 0 0 0;
+    padding: 4% 8%;
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 6%;
   }
 `;
 

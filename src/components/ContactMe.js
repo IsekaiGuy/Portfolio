@@ -128,10 +128,17 @@ const Container = styled.div`
     display: flex;
     text-align: center;
     padding: 0 5rem;
-    margin-top: 10rem;
+    margin-top: 13vh;
 
     h4 {
       font-size: 1.2rem;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-top: 8vh;
+    h2 {
+      padding-bottom: 3vh;
     }
   }
 
@@ -139,8 +146,23 @@ const Container = styled.div`
     padding: 0 2rem;
   }
 
+  @media screen and (max-width: 550px) {
+    margin-top: 5vh;
+  }
+
   @media screen and (max-width: 500px) {
-    margin-top: 20vh;
+    margin-top: 0vh;
+  }
+
+  @media screen and (max-width: 400px) {
+    h2 {
+      font-size: 9vw;
+      padding-bottom: 3vh;
+    }
+
+    h4 {
+      font-size: 4vw;
+    }
   }
 `;
 
@@ -158,6 +180,10 @@ const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
+
+  @media screen and (max-width: 800px) {
+    margin-top: 2vh;
+  }
 `;
 
 const InputLabel = styled.label`
@@ -227,6 +253,12 @@ const ButtonContainer = styled.div`
       justify-self: center;
       align-self: center;
       width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    button {
+      font-size: 3vw;
     }
   }
 `;

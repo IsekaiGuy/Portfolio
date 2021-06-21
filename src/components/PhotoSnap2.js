@@ -90,10 +90,10 @@ const Container = styled.div`
     padding: 4rem 1rem 4rem 0rem;
   }
 
-  @media screen and (max-width: 800px) {
-    width: 73vw;
-    padding: 4rem 0rem;
-    margin-left: 15vw;
+  @media screen and (max-width: 500px) {
+    button {
+      font-size: 3vw;
+    }
   }
 `;
 
@@ -116,40 +116,48 @@ const Link = styled(motion.a)`
   text-shadow: 1px 1px 1px orange;
 
   @media screen and (max-width: 1000px) {
-    top: 615%;
-    left: 45%;
+    top: 805%;
+    left: 48%;
   }
 
   @media screen and (max-width: 900px) {
-    top: 600%;
+    top: 790%;
   }
 
   @media screen and (max-width: 850px) {
-    top: 550%;
+    top: 735%;
+  }
+
+  @media screen and (max-width: 800px) {
+    top: 720%;
+  }
+
+  @media screen and (max-width: 700px) {
+    top: 670%;
   }
 
   @media screen and (max-width: 650px) {
-    top: 690%;
+    top: 860%;
   }
 
-  @media screen and (max-width: 550px) {
-    top: 710%;
+  @media screen and (max-width: 600px) {
+    top: 840%;
   }
 
   @media screen and (max-width: 500px) {
-    top: 665%;
+    top: 775%;
   }
 
   @media screen and (max-width: 450px) {
-    top: 690%;
-  }
-
-  @media screen and (max-width: 420px) {
-    top: 700%;
+    top: 790%;
   }
 
   @media screen and (max-width: 400px) {
-    top: 690%;
+    top: 760%;
+  }
+
+  @media screen and (max-width: 370px) {
+    top: 750%;
   }
 `;
 

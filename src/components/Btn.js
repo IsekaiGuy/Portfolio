@@ -19,9 +19,9 @@ const Button = styled(motion.button)`
   border-color: orangered;
   font-family: "Montserrat", sans-serif;
   text-shadow: 1px 1px black;
-  color: peachpuff;
+  /* color: peachpuff; */
   font-weight: bold;
-  filter: drop-shadow(3px 3px 2px navy);
+  filter: drop-shadow(2px 2px 2px navy);
 
   &:hover {
     box-shadow: 0 0.5em 0.5em -0.4em orangered;

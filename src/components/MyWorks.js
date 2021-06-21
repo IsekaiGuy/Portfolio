@@ -129,6 +129,12 @@ const Container = styled(motion.div)`
     }
   }
 
+  @media screen and (max-width: 450px) {
+    h2 {
+      margin-top: 3vh;
+    }
+  }
+
   @media screen and (max-width: 400px) {
     h3 {
       font-size: 4vh;
@@ -165,6 +171,10 @@ const Project = styled(motion.div)`
     justify-items: center;
     align-content: center;
     align-items: center;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 7vh 10% 30vh 10%;
   }
 `;
 

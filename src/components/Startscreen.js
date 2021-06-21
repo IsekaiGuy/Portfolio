@@ -5,7 +5,6 @@ import Btn from "../components/Btn";
 
 import myphoto from "../images/NeonMe.png";
 import myphoto2 from "../images/NeonMe2.png";
-import bg from "../images/Background2.png";
 
 import lowscaleNeon from "../images/NeonMelowscale.png";
 import lowscaleNeon2 from "../images/NeonMe2lowscale.png";
@@ -23,39 +22,40 @@ const LowscaleBg = React.lazy(() => import("./LowscaleBg"));
 const Startscreen = ({ bgVideo, snap }) => {
   return (
     <Container>
-      <ImageContainer>
-        <MyImage
-          variants={FadeIn}
-          initial="hidden"
-          animate="show"
-          src={snap ? myphoto2 : myphoto}
-          alt="It's me - Andrey Kruglik"
-        />
+      <ContentContainer>
+        <ImageContainer>
+          <MyImage
+            variants={FadeIn}
+            initial="hidden"
+            animate="show"
+            src={snap ? myphoto2 : myphoto}
+            alt="It's me - Andrey Kruglik"
+          />
 
-        <MyImageLowscale
-          variants={FadeIn}
-          initial="hidden"
-          animate="show"
-          src={snap ? lowscaleNeon2 : lowscaleNeon}
-          alt="It's me - Andrey Kruglik"
-        />
-      </ImageContainer>
-      <RightSide>
-        <motion.h1>Welcome to my Homepage!</motion.h1>
-        <motion.h3>
-          My name is <Name> Andrey Kruglik</Name>
-        </motion.h3>
-
-        <SecondName> Andrey Kruglik</SecondName>
-        <Buttons>
-          <HashLink smooth to="#myworks">
-            <Btn>My Works</Btn>
-          </HashLink>
-          <HashLink smooth to="#contact">
-            <Btn>Contact me</Btn>
-          </HashLink>
-        </Buttons>
-      </RightSide>
+          <MyImageLowscale
+            variants={FadeIn}
+            initial="hidden"
+            animate="show"
+            src={snap ? lowscaleNeon2 : lowscaleNeon}
+            alt="It's me - Andrey Kruglik"
+          />
+        </ImageContainer>
+        <RightSide>
+          <Title>
+            <motion.h2>Welcome to my Homepage!</motion.h2>
+            <motion.h3>My name is</motion.h3>
+            <Name>Andrey Kruglik</Name>
+          </Title>
+          <Buttons>
+            <HashLink smooth to="#myworks">
+              <Btn>My Works</Btn>
+            </HashLink>
+            <HashLink smooth to="#contact">
+              <Btn>Contact me</Btn>
+            </HashLink>
+          </Buttons>
+        </RightSide>
+      </ContentContainer>
       <VideoBg
         key={bgVideo ? sample2 : sample1}
         className="videoTag"
@@ -69,35 +69,17 @@ const Startscreen = ({ bgVideo, snap }) => {
       <Suspense fallback={<img src={loading} alt="Loading background" />}>
         <LowscaleBg />
       </Suspense>
-      <SecondBg src={bg} alt="background" />
     </Container>
   );
 };
 
 const Container = styled(motion.div)`
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
-  width: 100vw;
   z-index: 3;
-  overflow-x: hidden;
-
-  h1 {
-    background: linear-gradient(orangered, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
-    filter: drop-shadow(3px 3px 3px navy);
-    padding: 0 7px;
-  }
-
-  h3 {
-    background: linear-gradient(orangered, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
-    filter: drop-shadow(3px 3px 3px navy);
-    padding: 0 7px;
-  }
+  overflow: clip;
+  align-content: center;
+  align-items: center;
 
   @media screen and (max-width: 1100px) {
     min-height: 80vh;
@@ -112,85 +94,116 @@ const Container = styled(motion.div)`
   }
 
   @media screen and (max-width: 800px) {
-    min-height: 50vh;
-  }
-
-  @media screen and (max-width: 750px) {
-    min-height: 45vh;
+    height: 80vh;
   }
 
   @media screen and (max-width: 700px) {
-    min-height: 40vh;
-  }
-`;
-
-///////////////////////////SPAN SPAN SPAN
-
-const Name = styled(motion.span)`
-  font-size: 3vw;
-  color: red;
-  padding-left: 5px;
-  @media screen and (max-width: 1000px) {
-    font-size: 7vh;
-    display: block;
-  }
-
-  @media screen and (max-width: 900px) {
-    font-size: 6vh;
-  }
-
-  @media screen and (max-width: 750px) {
-    font-size: 5vh;
-  }
-
-  @media screen and (max-width: 700px) {
-    font-size: 7vh;
-    line-height: 1.4;
-    display: none;
-  }
-`;
-
-const SecondName = styled(motion.span)`
-  display: none;
-  background: linear-gradient(#ff681c, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  filter: drop-shadow(3px 3px 3px navy);
-  padding: 0 8px;
-  font-family: "road_rageregular";
-
-  @media screen and (max-width: 700px) {
-    font-size: 7.5vh;
-    line-height: 1.4;
-    display: block;
-    margin: 15vh 0 0 10vw;
-  }
-
-  @media screen and (max-width: 650px) {
-    margin: 15vh 0 0 5vw;
-  }
-
-  @media screen and (max-width: 600px) {
-    margin: 12vh 0 0 5vw;
-  }
-
-  @media screen and (max-width: 550px) {
-    margin: 12vh 0 0 12.5vw;
-    font-size: 6vh;
+    height: 72vh;
   }
 
   @media screen and (max-width: 500px) {
-    margin: 11vh 0 0 10vw;
-  }
-
-  @media screen and (max-width: 450px) {
-    font-size: 5vh;
+    height: 50vh;
+    align-items: flex-end;
+    margin-top: 2vh;
   }
 
   @media screen and (max-width: 400px) {
-    margin: 11vh 0 0 14.5vw;
-    font-size: 4vh;
+    height: 70vh;
+    margin-top: 0;
+  }
+`;
+
+const ContentContainer = styled(motion.div)`
+  display: flex;
+  align-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 0 3vw 0 5vw;
+
+  @media screen and (max-width: 1200px) {
+    margin-top: -7vh;
+    padding: 0 5vw;
+  }
+
+  @media screen and (max-width: 700px) {
+    margin-top: 0vh;
+    padding-right: 0;
+    padding-left: 7vw;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-top: -5vh;
+  }
+
+  @media screen and (max-width: 550px) {
+    margin-top: -15vh;
+  }
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    margin: 2vh 0 0 0;
+    padding: 0;
+    flex-direction: column-reverse;
+    width: 100vw;
+    justify-content: center;
+  }
+`;
+
+const Title = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+
+  h1 {
+    font-size: 5vw;
+    padding-left: 7px;
+    margin-top: -12px;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+    padding-left: 7px;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-top: -7vh;
+    padding: 0 5vw;
+  }
+
+  h2 {
+    font-size: 3vw;
+  }
+
+  h3 {
+    font-size: 2.7vw;
+    padding-bottom: 1vh;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    margin: 0 0 0 3vw;
+    padding: 0;
+
+    h1 {
+      font-size: 6vw;
+    }
+
+    h2 {
+      font-size: 5vw;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    margin: 0 0 2vh 4vw;
+  }
+`;
+
+const Name = styled(motion.h1)`
+  @media screen and (max-width: 1000px) {
+    font-size: 7vh;
+    display: block;
   }
 `;
 
@@ -199,196 +212,74 @@ const SecondName = styled(motion.span)`
 const RightSide = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   z-index: 10;
-  margin-top: 2rem;
-  padding: 0 1rem;
+  margin-top: 12vh;
+  margin-left: -12vh;
+  margin-right: 5vw;
+  text-align: center;
   width: 100%;
   height: auto;
+  position: relative;
 
   @media screen and (max-width: 1200px) {
-    margin-top: -1rem;
+    margin-right: 2vw;
+    margin-top: 10vh;
   }
 
   @media screen and (max-width: 1100px) {
-    margin-top: 2vh;
+    margin-top: 18vh;
+    margin-right: 0;
+    padding-left: 4vw;
   }
 
-  @media screen and (max-width: 1000px) {
-    text-align: center;
-    margin: 7vh 7vw 0 0;
-    padding: 0;
-
-    h1 {
-      font-size: 4vh;
-    }
-
-    h3 {
-      font-size: 3vh;
-    }
-  }
-
-  @media screen and (max-width: 900px) {
-    margin-top: 2rem;
-    margin-left: 1rem;
-  }
-
-  @media screen and (max-width: 850px) {
-    margin-top: 4rem;
-
-    h1 {
-      font-size: 3.5vh;
-      margin-bottom: 1rem;
-    }
-  }
-
-  @media screen and (max-width: 700px) {
-    h3 {
-      font-size: 3.5vh;
-      position: absolute;
-      top: 9.5%;
-      left: 37vw;
-    }
-
-    margin-top: -0.5rem;
-    padding: 0;
-    margin-left: 5%;
-    margin-right: -15vw;
-    text-align: left;
-
-    h1 {
-      font-size: 4vw;
-      position: absolute;
-      top: 3%;
-      left: 22vw;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    margin-left: 1%;
-    h3 {
-      top: 7.5%;
-      left: 35vw;
-    }
-  }
-
-  @media screen and (max-width: 550px) {
-    margin-left: 0;
-
-    h3 {
-      top: 7%;
-    }
-
-    h2 {
-      margin-left: 15%;
-      font-size: 5.5vh;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    margin-left: 0;
-
-    h2 {
-      margin-top: 28vh;
-      margin-left: 26%;
-      font-size: 3.5vh;
-    }
-
-    h3 {
-      font-size: 3vh;
-      position: absolute;
-      top: 6.5%;
-      left: 35vw;
-    }
-  }
-
-  @media screen and (max-width: 450px) {
-    h2 {
-      margin-top: 28vh;
-      margin-left: 23.5%;
-      font-size: 3.5vh;
-    }
-
-    h3 {
-      font-size: 2.3vh;
-      left: 36vw;
-    }
+  @media screen and (max-width: 800px) {
+    margin-top: 30vh;
   }
 
   @media screen and (max-width: 400px) {
-    h2 {
-      margin-top: 28vh;
-      margin-left: 23.5%;
-      font-size: 3vh;
-    }
+    margin-top: 10vh;
   }
 `;
 
 /////////////////////IMAGE IMAGE IMAGE
 const ImageContainer = styled(motion.div)`
-  width: 58vw;
-  margin: 8rem 0 0 15rem;
-
-  @media screen and (max-width: 1300px) {
-    margin: 10rem 0 0 9rem;
-  }
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  width: 67%;
+  padding: 10% 0 5% 5%;
+  position: relative;
 
   @media screen and (max-width: 1100px) {
-    margin: 17vh 0 0 8vw;
-  }
-
-  @media screen and (max-width: 1000px) {
-    margin: 14vh 0 0 9vw;
-  }
-
-  @media screen and (max-width: 900px) {
-    margin: 15vh 0 0 9vw;
-  }
-
-  @media screen and (max-width: 850px) {
-    margin: 13vh 0 0 10vw;
+    margin-top: 7%;
   }
 
   @media screen and (max-width: 800px) {
-    margin: 11vh 0 0 8vw;
-  }
-
-  @media screen and (max-width: 700px) {
-    position: absolute;
-    top: 4vh;
-    left: 12vw;
-    padding: 12vh 12vw;
+    margin-top: 9%;
+    padding: 20vh 0 5% 0;
+    width: 55vw;
   }
 
   @media screen and (max-width: 650px) {
-    left: 12.5vw;
-    top: 7vh;
-    padding: 4rem 4rem;
+    margin-top: 6.5%;
+    width: 50vw;
   }
 
   @media screen and (max-width: 600px) {
-    top: 5vh;
-    padding: 3rem 3rem;
-  }
-
-  @media screen and (max-width: 550px) {
-    top: 5vh;
-    padding: 2rem 2rem;
+    margin-top: 9%;
+    width: 45vw;
   }
 
   @media screen and (max-width: 500px) {
-    top: 0vh;
-    left: 13vw;
-    padding: 3.5rem 3.5rem;
-  }
-
-  @media screen and (max-width: 450px) {
-    top: 1.5vh;
-    padding: 3rem 3rem;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 30vw;
   }
 
   @media screen and (max-width: 400px) {
-    padding: 2rem 2rem;
+    margin-top: 5%;
+    width: 40vw;
   }
 `;
 
@@ -396,7 +287,7 @@ const MyImage = styled(motion.img)`
   position: relative;
   width: 100%;
   z-index: 10;
-  padding: 1rem;
+  padding: 3vw;
 
   @media screen and (max-width: 1000px) {
     display: none;
@@ -413,19 +304,23 @@ const MyImageLowscale = styled(motion.img)`
   @media screen and (max-width: 1000px) {
     display: block;
   }
+
+  @media screen and (max-width: 800px) {
+    padding-right: 0;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 0;
+  }
 `;
 
 const Buttons = styled(motion.div)`
-  margin-top: 2rem;
-  padding-left: 7px;
+  padding-left: 3vw;
   width: 100%;
 
   @media screen and (max-width: 900px) {
-    margin-top: 1rem;
-    padding-left: 2vw;
-
     button {
-      width: 42%;
+      font-size: 1.7vw;
     }
   }
 
@@ -435,73 +330,56 @@ const Buttons = styled(motion.div)`
 
   @media screen and (max-width: 750px) {
     button {
-      font-size: 1rem;
-    }
-  }
-
-  @media screen and (max-width: 700px) {
-    display: flex;
-    margin: 40vh 50vw 0 3vw;
-
-    a:last-child {
-      margin-left: 20vw;
-    }
-
-    button {
-      font-size: 1rem;
-      width: 170%;
-    }
-  }
-
-  @media screen and (max-width: 650px) {
-    margin-left: 0;
-  }
-
-  @media screen and (max-width: 550px) {
-    display: block;
-    width: 55%;
-    margin-left: 3%;
-
-    a:last-child {
-      margin-left: 0;
+      font-size: 2vw;
     }
   }
 
   @media screen and (max-width: 500px) {
-    margin-top: 25vh;
+    position: absolute;
+    padding: 0;
+    top: 45vh;
+    left: 15vw;
+    display: flex;
+
+    button {
+      width: 40vw;
+      font-size: 3vw;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+    top: 47vh;
+    left: 10vw;
+
+    button {
+      font-size: 3.2vw;
+      width: 80vw;
+    }
+  }
+
+  @media screen and (max-width: 370px) {
+    left: 11.5vw;
   }
 `;
 
 const VideoBg = styled.video`
   position: fixed;
   z-index: 1;
-  top: 0;
+  top: -10vh;
   left: 0;
-  width: 100%;
+  width: 100vw;
+
+  @media screen and (max-width: 1200px) {
+    top: -5vh;
+  }
+
+  @media screen and (max-width: 1100px) {
+    top: 0vh;
+  }
 
   @media screen and (max-width: 1000px) {
     display: none;
-  }
-`;
-
-const SecondBg = styled.img`
-  width: 100%;
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0%;
-
-  @media screen and (max-width: 500px) {
-    display: block;
-    z-index: 1;
-  }
-
-  @media screen and (max-width: 450px) {
-    top: 5%;
-  }
-
-  @media screen and (max-width: 400px) {
-    top: 7%;
   }
 `;
 

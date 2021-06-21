@@ -21,20 +21,39 @@ const VideoBg = styled.video`
   display: none;
   position: fixed;
   z-index: 1;
-  top: 0;
+  top: -10vh;
   left: 0;
   width: 100%;
 
   @media screen and (max-width: 1000px) {
-    display: inline;
+    display: block;
+    top: -5vh;
+  }
+
+  @media screen and (max-width: 900px) {
+    top: 0;
+    transform: scale(1.2);
+  }
+
+  @media screen and (max-width: 750px) {
+    top: 5vh;
   }
 
   @media screen and (max-width: 700px) {
-    top: 7vh;
+    top: 6vh;
+    transform: scale(1.3);
+  }
+
+  @media screen and (max-width: 600px) {
+    transform: scale(1.5);
   }
 
   @media screen and (max-width: 500px) {
-    top: 20vh;
+    transform: scale(1.8);
+  }
+
+  @media screen and (max-width: 400px) {
+    top: 15vh;
   }
 `;
 
