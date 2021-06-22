@@ -5,14 +5,10 @@ import worksData from "../worksData";
 import Btn from "../components/Btn";
 
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
-import { FadeInAndOut } from "../animations";
 
 const MyWorks = () => {
   return (
-    // <AnimatePresence>
-    // {inView && (
-    <Container id="myworks" variants={FadeInAndOut} animate="show" exit="exit">
+    <Container id="myworks">
       <h2>My works</h2>
       {worksData.map((work) => {
         return (
@@ -62,12 +58,10 @@ const MyWorks = () => {
         );
       })}
     </Container>
-    // )}
-    // </AnimatePresence>
   );
 };
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,7 +136,7 @@ const Container = styled(motion.div)`
   }
 `;
 
-const Project = styled(motion.div)`
+const Project = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50vh;
@@ -178,11 +172,11 @@ const Project = styled(motion.div)`
   }
 `;
 
-const VideoContainer = styled(motion.div)`
+const VideoContainer = styled.div`
   grid-column: 1 / 2;
 `;
 
-const Videos = styled(motion.video)`
+const Videos = styled.video`
   width: 46vw;
   box-shadow: 5px 5px 5px black;
   border-radius: 5px;
@@ -194,7 +188,7 @@ const Videos = styled(motion.video)`
   }
 `;
 
-const IconContainer = styled(motion.div)`
+const IconContainer = styled.div`
   display: flex;
   align-content: center;
 
@@ -203,7 +197,7 @@ const IconContainer = styled(motion.div)`
   }
 `;
 
-const Icon = styled(motion.img)`
+const Icon = styled.img`
   width: 3vw;
   height: 4vh;
   margin: 0.5rem;
@@ -215,7 +209,7 @@ const Icon = styled(motion.img)`
   }
 `;
 
-const DescriptionContainer = styled(motion.div)`
+const DescriptionContainer = styled.div`
   grid-column: 2 / 3;
   display: flex;
   flex-direction: column;
@@ -243,13 +237,13 @@ const DescriptionContainer = styled(motion.div)`
   }
 `;
 
-const Description = styled(motion.div)`
+const Description = styled.div`
   p {
     margin: 0.5rem 0;
   }
 `;
 
-const Btns = styled(motion.div)`
+const Btns = styled.div`
   display: flex;
 
   button {

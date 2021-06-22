@@ -5,7 +5,7 @@ import github from "../icons/github-icon.svg";
 import linkedin from "../icons/linkedin-icon.svg";
 
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { LineWidthAnim } from "../animations";
 
 const PhotoSnap = React.lazy(() => import("./PhotoSnap"));
@@ -14,6 +14,14 @@ const Btn = React.lazy(() => import("../components/Btn"));
 
 const ContactMe = ({ neonChanger, inView }) => {
   const [state, setState] = useState(false);
+
+  const controls = useAnimation();
+
+  if (inView) {
+    controls.start("show");
+  } else {
+    controls.start("hidden");
+  }
 
   useEffect(() => {
     setTimeout(function () {
@@ -77,58 +85,57 @@ const ContactMe = ({ neonChanger, inView }) => {
               <Icon src={linkedin} alt="LinkedIn icon" />
             </a>
           </SocialIcons>
-          {inView && (
-            <motion.div
-              variants={LineWidthAnim}
-              initial="hidden"
-              animate="show"
+
+          <motion.div
+            variants={LineWidthAnim}
+            initial="hidden"
+            animate={controls}
+          >
+            <ContactForm
+              className="contact-form"
+              onSubmit={sendEmail}
+              style={state ? { opacity: 0 } : { opacity: 1 }}
             >
-              <ContactForm
-                className="contact-form"
-                onSubmit={sendEmail}
-                style={state ? { opacity: 0 } : { opacity: 1 }}
-              >
-                <input type="hidden" name="contact_number" />
+              <input type="hidden" name="contact_number" />
 
-                <Input
-                  minLength="3"
-                  required
-                  type="text"
-                  name="user_name"
-                  id="user_name"
-                  variants={LineWidthAnim}
-                />
-                <InputLabel htmlFor="user_name">Name</InputLabel>
+              <Input
+                minLength="3"
+                required
+                type="text"
+                name="user_name"
+                id="user_name"
+                variants={LineWidthAnim}
+              />
+              <InputLabel htmlFor="user_name">Name</InputLabel>
 
-                <Input
-                  required
-                  type="email"
-                  name="user_email"
-                  id="user_email"
-                  variants={LineWidthAnim}
-                />
-                <InputLabel htmlFor="user_email">Email</InputLabel>
+              <Input
+                required
+                type="email"
+                name="user_email"
+                id="user_email"
+                variants={LineWidthAnim}
+              />
+              <InputLabel htmlFor="user_email">Email</InputLabel>
 
-                <Input
-                  minLength="8"
-                  required
-                  type="text"
-                  name="message"
-                  id="message"
-                  variants={LineWidthAnim}
-                ></Input>
-                <InputLabel htmlFor="message">Message</InputLabel>
+              <Input
+                minLength="8"
+                required
+                type="text"
+                name="message"
+                id="message"
+                variants={LineWidthAnim}
+              ></Input>
+              <InputLabel htmlFor="message">Message</InputLabel>
 
-                <ButtonContainer>
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <Btn type="submit" value="Send">
-                      Send
-                    </Btn>
-                  </Suspense>
-                </ButtonContainer>
-              </ContactForm>
-            </motion.div>
-          )}
+              <ButtonContainer>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Btn type="submit" value="Send">
+                    Send
+                  </Btn>
+                </Suspense>
+              </ButtonContainer>
+            </ContactForm>
+          </motion.div>
         </FormContainer>
         <Suspense fallback={<div>Loading...</div>}>
           <PhotoSnap neonChanger={neonChanger} />
@@ -152,7 +159,7 @@ const SocialIcons = styled.div`
 const Icon = styled(motion.img)`
   width: 7vw;
   height: 7vh;
-  margin: 3.5vh 0 -4vh -1vw;
+  margin: 2.5vh 0 -2.5vh -1vw;
   filter: drop-shadow(1px 1px navy);
 
   &:first-child {
@@ -160,9 +167,17 @@ const Icon = styled(motion.img)`
       brightness(112%) contrast(109%) drop-shadow(1px 1px navy);
   }
 
+  @media screen and (max-width: 800px) {
+    margin: 2.5vh 0 -2.5vh 0;
+  }
+
   @media screen and (max-width: 650px) {
-    width: 8vw;
-    height: 8vh;
+    margin: 2.5vh 0 -2.5vh 0.5rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 `;
 
@@ -290,6 +305,7 @@ const Input = styled(motion.input)`
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     -webkit-box-shadow: transparent inset !important;
+    box-shadow: transparent inset !important;
   }
 
   @media screen and (max-width: 1000px) {

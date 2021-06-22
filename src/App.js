@@ -13,26 +13,17 @@ function App() {
   const [state, setState] = useState(false);
   const [bgVideo, setBgvideo] = useState(false);
 
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-  });
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     setBgvideo(!bgVideo);
-    console.log(inView);
   }, [inView]);
-
-  const [ref2, inView2] = useInView({
-    threshold: 0.5,
-  });
 
   return (
     <div className="App">
       <GlobalStyle />
       <Route path="/">
-        <div ref={ref2}>
-          <Startscreen bgVideo={bgVideo} snap={state} />
-        </div>
+        <Startscreen bgVideo={bgVideo} snap={state} />
         <AboutMe />
 
         <Suspense

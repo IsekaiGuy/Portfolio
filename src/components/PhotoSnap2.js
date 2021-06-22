@@ -141,23 +141,23 @@ const Link = styled(motion.a)`
   }
 
   @media screen and (max-width: 600px) {
-    top: 840%;
+    top: 860%;
   }
 
   @media screen and (max-width: 500px) {
-    top: 775%;
-  }
-
-  @media screen and (max-width: 450px) {
     top: 790%;
   }
 
+  @media screen and (max-width: 450px) {
+    top: 805%;
+  }
+
   @media screen and (max-width: 400px) {
-    top: 760%;
+    top: 775%;
   }
 
   @media screen and (max-width: 370px) {
-    top: 750%;
+    top: 770%;
   }
 `;
 
