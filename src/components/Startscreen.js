@@ -8,14 +8,13 @@ import myphoto2 from "../images/NeonMe2.png";
 
 import lowscaleNeon from "../images/NeonMelowscale.png";
 import lowscaleNeon2 from "../images/NeonMe2lowscale.png";
-import loading from "../images/Loading.png";
 
 import sample1 from "../videos/1.webm";
 import sample2 from "../videos/2.webm";
 
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { FadeIn } from "../animations";
+import { FadeIn, ButtonScale, SlideInRight } from "../animations";
 
 const LowscaleBg = React.lazy(() => import("./LowscaleBg"));
 
@@ -42,11 +41,15 @@ const Startscreen = ({ bgVideo, snap }) => {
         </ImageContainer>
         <RightSide>
           <Title>
-            <motion.h2>Welcome to my Homepage!</motion.h2>
-            <motion.h3>My name is</motion.h3>
-            <Name>Andrey Kruglik</Name>
+            <motion.div variants={SlideInRight} animate="show" initial="hidden">
+              <motion.h2 variants={SlideInRight}>
+                Welcome to my Homepage!
+              </motion.h2>
+              <motion.h3 variants={SlideInRight}>My name is</motion.h3>
+              <Name variants={SlideInRight}>Andrey Kruglik</Name>
+            </motion.div>
           </Title>
-          <Buttons>
+          <Buttons variants={ButtonScale} initial="hidden" animate="show">
             <HashLink smooth to="#myworks">
               <Btn>My Works</Btn>
             </HashLink>
@@ -66,7 +69,13 @@ const Startscreen = ({ bgVideo, snap }) => {
       >
         <source src={bgVideo ? sample2 : sample1} type="video/mp4" />
       </VideoBg>
-      <Suspense fallback={<img src={loading} alt="Loading background" />}>
+      <Suspense
+        fallback={
+          <h2 style={{ position: "absolute", top: "5%", left: "5%" }}>
+            Loading, please wait...
+          </h2>
+        }
+      >
         <LowscaleBg />
       </Suspense>
     </Container>
@@ -213,7 +222,7 @@ const RightSide = styled(motion.div)`
   display: flex;
   flex-direction: column;
   z-index: 10;
-  margin-top: 12vh;
+  margin-top: 6vh;
   margin-left: -12vh;
   margin-right: 5vw;
   text-align: center;

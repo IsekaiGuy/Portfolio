@@ -6,13 +6,13 @@ import Btn from "../components/Btn";
 
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import { FadeOut } from "../animations";
+import { FadeInAndOut } from "../animations";
 
 const MyWorks = () => {
   return (
     // <AnimatePresence>
     // {inView && (
-    <Container id="myworks" variants={FadeOut} animate="show" exit="exit">
+    <Container id="myworks" variants={FadeInAndOut} animate="show" exit="exit">
       <h2>My works</h2>
       {worksData.map((work) => {
         return (
@@ -260,7 +260,7 @@ const Btns = styled(motion.div)`
     margin-left: 1em;
   }
 
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: 1100px) {
     display: block;
 
     button {
@@ -276,7 +276,6 @@ const Btns = styled(motion.div)`
   @media screen and (max-width: 1000px) {
     display: flex;
     margin-left: -50vw;
-    /* padding: 1.5rem; */
     padding: 0;
     margin-bottom: -10vh;
 
@@ -314,10 +313,6 @@ const Btns = styled(motion.div)`
   @media screen and (max-width: 650px) {
     margin-top: 0.5rem;
   }
-
-  /* @media screen and (max-width: 550px) {
-    margin-left: -4vw;
-  } */
 
   @media screen and (max-width: 450px) {
     display: block;

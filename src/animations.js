@@ -5,24 +5,26 @@ export const FadeIn = {
   show: {
     opacity: 1,
     transition: {
-      duration: 1,
+      delay: 2,
+      duration: 3,
     },
   },
 };
 
-const ButtonScale = {
+export const ButtonScale = {
   hidden: {
     scale: 0,
   },
   show: {
-    scale: [1.2, 1],
+    scale: 1,
     transition: {
-      duration: 0.2,
+      duration: 0.5,
+      delay: 2.5,
     },
   },
 };
 
-export const FadeOut = {
+export const FadeInAndOut = {
   hidden: {
     opacity: 0,
   },
@@ -56,7 +58,7 @@ export const ZFade = {
 
 export const SlideInRight = {
   hidden: {
-    x: "100%",
+    x: "150%",
     skew: "-30deg",
   },
   show: {
@@ -64,14 +66,21 @@ export const SlideInRight = {
     skew: 0,
     transition: {
       ease: "easeIn",
-      duration: 0.2,
-      staggerChildren: 0.7,
-      when: "beforeChildren",
+      duration: 0.5,
+      staggerChildren: 0.8,
     },
   },
-  exit: {
-    x: "-100%",
-    skew: "45deg",
-    transition: { ease: "easeIn", duration: 0.5 },
+};
+
+export const LineWidthAnim = {
+  hidden: {
+    width: 0,
+  },
+  show: {
+    width: "100%",
+    transition: {
+      duration: 1,
+      staggerChildren: 0.2,
+    },
   },
 };

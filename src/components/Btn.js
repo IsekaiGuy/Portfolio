@@ -19,7 +19,6 @@ const Button = styled(motion.button)`
   border-color: orangered;
   font-family: "Montserrat", sans-serif;
   text-shadow: 1px 1px black;
-  /* color: peachpuff; */
   font-weight: bold;
   filter: drop-shadow(2px 2px 2px navy);
 

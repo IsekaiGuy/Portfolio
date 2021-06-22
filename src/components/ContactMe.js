@@ -1,13 +1,18 @@
 import React, { useState, useEffect, Suspense } from "react";
 import emailjs from "emailjs-com";
 
+import github from "../icons/github-icon.svg";
+import linkedin from "../icons/linkedin-icon.svg";
+
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { LineWidthAnim } from "../animations";
 
 const PhotoSnap = React.lazy(() => import("./PhotoSnap"));
 const PhotoSnap2 = React.lazy(() => import("./PhotoSnap2"));
 const Btn = React.lazy(() => import("../components/Btn"));
 
-const ContactMe = ({ neonChanger }) => {
+const ContactMe = ({ neonChanger, inView }) => {
   const [state, setState] = useState(false);
 
   useEffect(() => {
@@ -56,40 +61,74 @@ const ContactMe = ({ neonChanger }) => {
           >
             Message sent successfully!
           </Message>
-          <ContactForm
-            className="contact-form"
-            onSubmit={sendEmail}
-            style={state ? { opacity: 0 } : { opacity: 1 }}
-          >
-            <input type="hidden" name="contact_number" />
-            <Input
-              minLength="3"
-              required
-              type="text"
-              name="user_name"
-              id="user_name"
-            />
-            <InputLabel htmlFor="user_name">Name</InputLabel>
+          <SocialIcons>
+            <a
+              href="https://github.com/IsekaiGuy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon src={github} alt="Github icon" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/andrey-kruglik-2526a4214/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon src={linkedin} alt="LinkedIn icon" />
+            </a>
+          </SocialIcons>
+          {inView && (
+            <motion.div
+              variants={LineWidthAnim}
+              initial="hidden"
+              animate="show"
+            >
+              <ContactForm
+                className="contact-form"
+                onSubmit={sendEmail}
+                style={state ? { opacity: 0 } : { opacity: 1 }}
+              >
+                <input type="hidden" name="contact_number" />
 
-            <Input required type="email" name="user_email" id="user_email" />
-            <InputLabel htmlFor="user_email">Email</InputLabel>
+                <Input
+                  minLength="3"
+                  required
+                  type="text"
+                  name="user_name"
+                  id="user_name"
+                  variants={LineWidthAnim}
+                />
+                <InputLabel htmlFor="user_name">Name</InputLabel>
 
-            <Input
-              minLength="8"
-              required
-              type="text"
-              name="message"
-              id="message"
-            ></Input>
-            <InputLabel htmlFor="message">Message</InputLabel>
-            <ButtonContainer>
-              <Suspense fallback={<div>Loading...</div>}>
-                <Btn type="submit" value="Send">
-                  Send
-                </Btn>
-              </Suspense>
-            </ButtonContainer>
-          </ContactForm>
+                <Input
+                  required
+                  type="email"
+                  name="user_email"
+                  id="user_email"
+                  variants={LineWidthAnim}
+                />
+                <InputLabel htmlFor="user_email">Email</InputLabel>
+
+                <Input
+                  minLength="8"
+                  required
+                  type="text"
+                  name="message"
+                  id="message"
+                  variants={LineWidthAnim}
+                ></Input>
+                <InputLabel htmlFor="message">Message</InputLabel>
+
+                <ButtonContainer>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Btn type="submit" value="Send">
+                      Send
+                    </Btn>
+                  </Suspense>
+                </ButtonContainer>
+              </ContactForm>
+            </motion.div>
+          )}
         </FormContainer>
         <Suspense fallback={<div>Loading...</div>}>
           <PhotoSnap neonChanger={neonChanger} />
@@ -102,7 +141,32 @@ const ContactMe = ({ neonChanger }) => {
   );
 };
 
-const Container = styled.div`
+const SocialIcons = styled.div`
+  display: flex;
+
+  @media screen and (max-width: 1000px) {
+    justify-content: center;
+  }
+`;
+
+const Icon = styled(motion.img)`
+  width: 7vw;
+  height: 7vh;
+  margin: 3.5vh 0 -4vh -1vw;
+  filter: drop-shadow(1px 1px navy);
+
+  &:first-child {
+    filter: invert(14%) sepia(82%) saturate(7476%) hue-rotate(359deg)
+      brightness(112%) contrast(109%) drop-shadow(1px 1px navy);
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 8vw;
+    height: 8vh;
+  }
+`;
+
+const Container = styled(motion.div)`
   min-height: 40vh;
   display: flex;
   background-size: cover;
@@ -179,7 +243,7 @@ const FormContainer = styled.div`
 const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
+  margin-top: 1rem;
 
   @media screen and (max-width: 800px) {
     margin-top: 2vh;
@@ -194,7 +258,7 @@ const InputLabel = styled.label`
   transition: ease 0.2s;
 `;
 
-const Input = styled.input`
+const Input = styled(motion.input)`
   display: block;
   border-width: 0 0 2px 0;
   border-bottom: 3px solid red;
@@ -218,7 +282,7 @@ const Input = styled.input`
 
   &:invalid + ${InputLabel} {
     color: red;
-    text-shadow: 0.2px 0.2px gray;
+    text-shadow: 1px 1px 2px blueviolet;
   }
 
   &:-webkit-autofill,
@@ -234,10 +298,10 @@ const Input = styled.input`
 `;
 
 const ButtonContainer = styled.div`
-  margin-top: 5vh;
   align-self: flex-start;
 
   button {
+    margin-top: 5vh;
     width: 120%;
   }
 

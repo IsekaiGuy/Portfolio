@@ -35,17 +35,18 @@ h1, h2, h3 {
         color: red;
         font-family: 'road_rageregular';
         text-shadow: 2px 2px 3px navy;
+        padding-left: 7px;
 }
 
-${
-  "" /* h1, h2, h3 {
+
+  h1, h2, h3 {
   background: linear-gradient(orangered, red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: none;
     filter: drop-shadow(3px 3px 3px navy);
-} */
-}
+} 
+
 
 h1 {
     ${

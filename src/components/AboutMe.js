@@ -159,10 +159,6 @@ const MiddleText = styled(motion.div)`
     margin: 0;
     padding: 4% 8%;
   }
-
-  @media screen and (max-width: 400px) {
-    padding: 6%;
-  }
 `;
 
 const LeftText = styled(motion.div)`
@@ -183,10 +179,6 @@ const LeftText = styled(motion.div)`
     margin: 0 0 0 0;
     padding: 4% 8%;
   }
-
-  @media screen and (max-width: 400px) {
-    padding: 6%;
-  }
 `;
 
 const RightText = styled(motion.div)`
@@ -205,11 +197,7 @@ const RightText = styled(motion.div)`
 
   @media screen and (max-width: 700px) {
     margin: 0 0 0 0;
-    padding: 4% 8%;
-  }
-
-  @media screen and (max-width: 400px) {
-    padding: 6%;
+    padding: 5% 9%;
   }
 `;
 

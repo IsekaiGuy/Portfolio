@@ -4,7 +4,6 @@ import { useInView } from "react-intersection-observer";
 
 import Startscreen from "./components/Startscreen";
 import AboutMe from "./components/AboutMe";
-// import MyWorks from "./components/MyWorks";
 import ContactMe from "./components/ContactMe";
 import GlobalStyle from "./components/GlobalStyle";
 
@@ -15,11 +14,12 @@ function App() {
   const [bgVideo, setBgvideo] = useState(false);
 
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   useEffect(() => {
     setBgvideo(!bgVideo);
+    console.log(inView);
   }, [inView]);
 
   const [ref2, inView2] = useInView({
@@ -30,10 +30,11 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Route path="/">
-        <Startscreen bgVideo={bgVideo} snap={state} />
         <div ref={ref2}>
-          <AboutMe />
+          <Startscreen bgVideo={bgVideo} snap={state} />
         </div>
+        <AboutMe />
+
         <Suspense
           fallback={
             <h2 style={{ textAlign: "center" }}>Projects Loading...</h2>
@@ -42,7 +43,7 @@ function App() {
           <MyWorks />
         </Suspense>
         <div ref={ref}>
-          <ContactMe neonChanger={setState} />
+          <ContactMe neonChanger={setState} inView={inView} />
         </div>
       </Route>
     </div>
