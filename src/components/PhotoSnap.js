@@ -21,7 +21,7 @@ const PhotoSnap = ({ neonChanger }) => {
         <Me src={meSmall} alt="My Photo" />
       </InfinityGauntlet>
       <Link
-        href="/"
+        href="https://github.com/IsekaiGuy/Portfolio"
         style={!snap ? { display: "none" } : { display: "inline" }}
         variants={ZFade}
         initial={snap ? "hidden" : "show"}

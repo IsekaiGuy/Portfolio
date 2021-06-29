@@ -11,6 +11,7 @@ import reduxIcon from "./icons/redux.svg";
 import styledIcon from "./icons/styled.svg";
 import nodejsIcon from "./icons/nodejs.svg";
 import framerIcon from "./icons/framer.svg";
+import typescript from "./icons/typescript.svg";
 
 import wavesVid from "./videos/Waves.webm";
 import captureVid from "./videos/Capture.webm";
@@ -44,7 +45,14 @@ const worksData = [
     title: "Ignite",
     image: ignite,
     video: igniteVid,
-    icons: [reactIcon, reduxIcon, routerIcon, styledIcon, framerIcon],
+    icons: [
+      reactIcon,
+      reduxIcon,
+      routerIcon,
+      styledIcon,
+      framerIcon,
+      typescript,
+    ],
     description:
       "Videogames search database, with auto updating infomation about upcoming games. Using Rawg.io API.",
     githubUrl: "https://github.com/IsekaiGuy/Ignite",
