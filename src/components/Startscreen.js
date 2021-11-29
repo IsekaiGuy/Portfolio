@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { memo } from "react";
 import { HashLink } from "react-router-hash-link";
 
 import Btn from "../components/Btn";
@@ -9,18 +9,12 @@ import myphoto2 from "../images/NeonMe2.png";
 import lowscaleNeon from "../images/NeonMelowscale.png";
 import lowscaleNeon2 from "../images/NeonMe2lowscale.png";
 
-// Videos
-import sample1 from "../videos/1.webm";
-import sample2 from "../videos/2.webm";
-
 // Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { FadeIn, ButtonScale, SlideInRight } from "../animations";
 
-const LowscaleBg = React.lazy(() => import("./LowscaleBg"));
-
-const Startscreen = ({ bgVideo, snap }) => {
+const Startscreen = ({ snap }) => {
   return (
     <Container>
       <ContentContainer>
@@ -71,25 +65,6 @@ const Startscreen = ({ bgVideo, snap }) => {
           </Buttons>
         </RightSide>
       </ContentContainer>
-      <VideoBg
-        key={bgVideo ? sample2 : sample1}
-        className="videoTag"
-        autoPlay
-        loop
-        muted
-        playsinline
-      >
-        <source src={bgVideo ? sample2 : sample1} type="video/mp4" />
-      </VideoBg>
-      <Suspense
-        fallback={
-          <h2 style={{ position: "absolute", top: "5%", left: "5%" }}>
-            Loading, please wait...
-          </h2>
-        }
-      >
-        <LowscaleBg />
-      </Suspense>
     </Container>
   );
 };
@@ -384,24 +359,4 @@ const Buttons = styled(motion.div)`
   }
 `;
 
-const VideoBg = styled.video`
-  position: fixed;
-  z-index: 1;
-  top: -10vh;
-  left: 0;
-  width: 100vw;
-
-  @media screen and (max-width: 1200px) {
-    top: -5vh;
-  }
-
-  @media screen and (max-width: 1100px) {
-    top: 0vh;
-  }
-
-  @media screen and (max-width: 1000px) {
-    display: none;
-  }
-`;
-
-export default React.memo(Startscreen);
+export default memo(Startscreen);
