@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const Btn = ({ children }) => {
-  return <Button>{children}</Button>;
+  return <Button type="button">{children}</Button>;
 };
 
 const Button = styled(motion.button)`

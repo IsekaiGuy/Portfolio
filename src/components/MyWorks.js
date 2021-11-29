@@ -42,6 +42,7 @@ const MyWorks = () => {
                   href={work.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  tabIndex="-1"
                 >
                   <Btn>Source Code</Btn>
                 </a>
@@ -49,6 +50,7 @@ const MyWorks = () => {
                   href={work.projectUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  tabIndex="-1"
                 >
                   <Btn>Visit Website</Btn>
                 </a>

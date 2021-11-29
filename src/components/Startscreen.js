@@ -3,15 +3,17 @@ import { HashLink } from "react-router-hash-link";
 
 import Btn from "../components/Btn";
 
+// Images
 import myphoto from "../images/NeonMe.png";
 import myphoto2 from "../images/NeonMe2.png";
-
 import lowscaleNeon from "../images/NeonMelowscale.png";
 import lowscaleNeon2 from "../images/NeonMe2lowscale.png";
 
+// Videos
 import sample1 from "../videos/1.webm";
 import sample2 from "../videos/2.webm";
 
+// Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { FadeIn, ButtonScale, SlideInRight } from "../animations";
@@ -50,10 +52,20 @@ const Startscreen = ({ bgVideo, snap }) => {
             </motion.div>
           </Title>
           <Buttons variants={ButtonScale} initial="hidden" animate="show">
-            <HashLink smooth to="#myworks">
+            <HashLink
+              smooth
+              to="#myworks"
+              tabIndex="-1"
+              style={{ display: "contents" }}
+            >
               <Btn>My Works</Btn>
             </HashLink>
-            <HashLink smooth to="#contact">
+            <HashLink
+              smooth
+              to="#contact"
+              tabIndex="-1"
+              style={{ display: "contents" }}
+            >
               <Btn>Contact me</Btn>
             </HashLink>
           </Buttons>
@@ -205,7 +217,7 @@ const Title = styled(motion.div)`
   }
 
   @media screen and (max-width: 450px) {
-    margin: 0 0 2vh 4vw;
+    margin: 0 0 2vh 6vw;
   }
 `;
 
@@ -368,7 +380,7 @@ const Buttons = styled(motion.div)`
   }
 
   @media screen and (max-width: 370px) {
-    left: 11.5vw;
+    left: 21vw;
   }
 `;
 
