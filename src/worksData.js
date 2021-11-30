@@ -1,9 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
 
-import capture from "./images/Capture.png";
-import ignite from "./images/Ignite.png";
-import waves from "./images/Waves.png";
-import divine from "./images/Divine.png";
 import reactIcon from "./icons/react.svg";
 import sassIcon from "./icons/sass.svg";
 import routerIcon from "./icons/react-router.svg";
@@ -12,17 +8,18 @@ import styledIcon from "./icons/styled.svg";
 import nodejsIcon from "./icons/nodejs.svg";
 import framerIcon from "./icons/framer.svg";
 import typescript from "./icons/typescript.svg";
+import formikIcon from "./icons/formik.svg";
 
 import wavesVid from "./videos/Waves.webm";
 import captureVid from "./videos/Capture.webm";
 import igniteVid from "./videos/Ignite.webm";
 import divineVid from "./videos/Divine.webm";
+import marvelVid from "./videos/Marvel.webm";
 
 const worksData = [
   {
     id: uuidv4(),
     title: "Waves",
-    image: waves,
     video: wavesVid,
     icons: [reactIcon, sassIcon],
     description: "Music streaming website, with Lo-Fi songs.",
@@ -32,7 +29,6 @@ const worksData = [
   {
     id: uuidv4(),
     title: "Capture",
-    image: capture,
     video: captureVid,
     icons: [reactIcon, routerIcon, styledIcon, framerIcon],
     description:
@@ -42,8 +38,17 @@ const worksData = [
   },
   {
     id: uuidv4(),
+    title: "Marvel Information Portal",
+    video: marvelVid,
+    icons: [reactIcon, routerIcon, formikIcon, sassIcon],
+    description:
+      "Marvel information portal, where you can find information about any Marvel hero or comicbook.",
+    githubUrl: "https://github.com/IsekaiGuy/Marvel-Portal",
+    projectUrl: "https://hungry-curie-192bea.netlify.app/",
+  },
+  {
+    id: uuidv4(),
     title: "Ignite",
-    image: ignite,
     video: igniteVid,
     icons: [
       reactIcon,
@@ -61,7 +66,6 @@ const worksData = [
   {
     id: uuidv4(),
     title: "Divination Market (In Progress)",
-    image: divine,
     video: divineVid,
     icons: [nodejsIcon, reactIcon, reduxIcon, routerIcon, sassIcon, framerIcon],
     description:

@@ -10,55 +10,57 @@ const MyWorks = () => {
   return (
     <Container id="myworks">
       <h2>My works</h2>
-      {worksData.map((work) => {
-        return (
-          <Project id={work.id} key={work.id}>
-            <VideoContainer>
-              <Videos
-                key={work.video}
-                className="videoTag"
-                autoPlay
-                loop
-                muted
-                playsinline
-                loading="lazy"
-              >
-                <source src={work.video} type="video/mp4" />
-              </Videos>
-            </VideoContainer>
+      {worksData.map(
+        ({ id, video, title, icons, description, githubUrl, projectUrl }) => {
+          return (
+            <Project id={id} key={id}>
+              <VideoContainer>
+                <Videos
+                  key={video}
+                  className="videoTag"
+                  autoPlay
+                  loop
+                  muted
+                  playsinline
+                  loading="lazy"
+                >
+                  <source src={video} type="video/mp4" />
+                </Videos>
+              </VideoContainer>
 
-            <DescriptionContainer>
-              <Description>
-                <h3>{work.title}</h3>
-                <IconContainer>
-                  {work.icons.map((icon) => (
-                    <Icon key={uuidv4()} src={icon} alt="icon" />
-                  ))}
-                </IconContainer>
-                <p>{work.description}</p>
-              </Description>
-              <Btns>
-                <a
-                  href={work.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  tabIndex="-1"
-                >
-                  <Btn>Source Code</Btn>
-                </a>
-                <a
-                  href={work.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  tabIndex="-1"
-                >
-                  <Btn>Visit Website</Btn>
-                </a>
-              </Btns>
-            </DescriptionContainer>
-          </Project>
-        );
-      })}
+              <DescriptionContainer>
+                <Description>
+                  <h3>{title}</h3>
+                  <IconContainer>
+                    {icons.map((icon) => (
+                      <Icon key={uuidv4()} src={icon} alt="icon" />
+                    ))}
+                  </IconContainer>
+                  <p>{description}</p>
+                </Description>
+                <Btns>
+                  <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabIndex="-1"
+                  >
+                    <Btn>Source Code</Btn>
+                  </a>
+                  <a
+                    href={projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabIndex="-1"
+                  >
+                    <Btn>Visit Website</Btn>
+                  </a>
+                </Btns>
+              </DescriptionContainer>
+            </Project>
+          );
+        }
+      )}
     </Container>
   );
 };
