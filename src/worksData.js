@@ -5,15 +5,15 @@ import sassIcon from "./icons/sass.svg";
 import routerIcon from "./icons/react-router.svg";
 import reduxIcon from "./icons/redux.svg";
 import styledIcon from "./icons/styled.svg";
-import nodejsIcon from "./icons/nodejs.svg";
+// import nodejsIcon from "./icons/nodejs.svg";
 import framerIcon from "./icons/framer.svg";
 import typescript from "./icons/typescript.svg";
 import formikIcon from "./icons/formik.svg";
 
 import wavesVid from "./videos/Waves.webm";
 import captureVid from "./videos/Capture.webm";
+import kozhindevVid from "./videos/kozhindev.webm";
 import igniteVid from "./videos/Ignite.webm";
-import divineVid from "./videos/Divine.webm";
 import marvelVid from "./videos/Marvel.webm";
 
 const worksData = [
@@ -59,19 +59,22 @@ const worksData = [
       typescript,
     ],
     description:
-      "Videogames search database, with auto updating infomation about upcoming games. Using Rawg.io API.",
+      "Videogames search database, with auto updating information about upcoming games. Using Rawg.io API.",
     githubUrl: "https://github.com/IsekaiGuy/Ignite",
     projectUrl: "https://stupefied-northcutt-cb1b60.netlify.app/",
   },
   {
     id: uuidv4(),
-    title: "Divination Market (In Progress)",
-    video: divineVid,
-    icons: [nodejsIcon, reactIcon, reduxIcon, routerIcon, sassIcon, framerIcon],
+    title: "KozhinDev",
+    video: kozhindevVid,
+    icons: [
+      reactIcon,
+      reduxIcon,
+      routerIcon,
+      sassIcon],
     description:
-      "Market for extraordinary services: astrologists, shamans and other gifted people, can sell here their services.",
-    githubUrl: "https://github.com/IsekaiGuy/DivineProject",
-    projectUrl: "https://eloquent-kirch-1e81b7.netlify.app/",
+      "Website of software development studio from Russia, with more then 10 years of successful work.",
+    projectUrl: "https://kozhindev.com/",
   },
   // {
   //   id: "0004",

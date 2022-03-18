@@ -11,7 +11,16 @@ const MyWorks = () => {
     <Container id="myworks">
       <h2>My works</h2>
       {worksData.map(
-        ({ id, video, title, icons, description, githubUrl, projectUrl }) => {
+        ({
+
+             id,
+             video,
+             title,
+             icons,
+             description,
+             githubUrl,
+             projectUrl
+        }) => {
           return (
             <Project id={id} key={id}>
               <VideoContainer>
@@ -39,14 +48,14 @@ const MyWorks = () => {
                   <p>{description}</p>
                 </Description>
                 <Btns>
-                  <a
-                    href={githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    tabIndex="-1"
-                  >
-                    <Btn>Source Code</Btn>
-                  </a>
+                    {githubUrl && <a
+                        href={githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        tabIndex="-1"
+                    >
+                        <Btn>Source Code</Btn>
+                    </a>}
                   <a
                     href={projectUrl}
                     target="_blank"
@@ -63,7 +72,7 @@ const MyWorks = () => {
       )}
     </Container>
   );
-};
+}
 
 const Container = styled.div`
   display: flex;

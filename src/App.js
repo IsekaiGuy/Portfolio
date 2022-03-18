@@ -29,7 +29,11 @@ function App() {
       <Startscreen snap={state} />
       <AboutMe />
       <Suspense
-        fallback={<h2 style={{ textAlign: "center" }}>Projects Loading...</h2>}
+        fallback={
+            <h2 style={{ textAlign: "center" }}>
+                Projects Loading...
+            </h2>
+        }
       >
         <MyWorks />
       </Suspense>
