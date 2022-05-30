@@ -73,6 +73,7 @@ const worksData = [
       reactIcon,
       reduxIcon,
       routerIcon,
+      typescript,
       sassIcon],
     description:
       "Website of software development studio from Russia, with more then 10 years of successful work.",
@@ -86,6 +87,7 @@ const worksData = [
       reactIcon,
       reduxIcon,
       routerIcon,
+      typescript,
       sassIcon],
     description:
         "Website of a major dealer of luxury real estate in Dubai.",
