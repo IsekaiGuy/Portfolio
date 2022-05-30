@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Suspense, lazy, memo } from "react";
+
 // Videos
 import sample1 from "../videos/1.webm";
 import sample2 from "../videos/2.webm";

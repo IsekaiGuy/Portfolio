@@ -13,7 +13,7 @@ const MyWorks = lazy(() => import("./components/MyWorks"));
 function App() {
   const [state, setState] = useState(false);
 
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({threshold: .5});
 
   const View = useCallback(() => {
     return (

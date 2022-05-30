@@ -10,11 +10,13 @@ import framerIcon from "./icons/framer.svg";
 import typescript from "./icons/typescript.svg";
 import formikIcon from "./icons/formik.svg";
 
+//Videos
 import wavesVid from "./videos/Waves.webm";
 import captureVid from "./videos/Capture.webm";
 import kozhindevVid from "./videos/kozhindev.webm";
 import igniteVid from "./videos/Ignite.webm";
 import marvelVid from "./videos/Marvel.webm";
+import goldenbeeVid from './videos/goldenbee.webm';
 
 const worksData = [
   {
@@ -75,6 +77,19 @@ const worksData = [
     description:
       "Website of software development studio from Russia, with more then 10 years of successful work.",
     projectUrl: "https://kozhindev.com/",
+  },
+  {
+    id: uuidv4(),
+    title: "GoldenBee",
+    video: goldenbeeVid,
+    icons: [
+      reactIcon,
+      reduxIcon,
+      routerIcon,
+      sassIcon],
+    description:
+        "Website of a major dealer of luxury real estate in Dubai.",
+    projectUrl: "https://goldenbee.kozhin.dev/",
   },
   // {
   //   id: "0004",
