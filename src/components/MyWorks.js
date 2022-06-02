@@ -1,13 +1,11 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-
 import worksData from "../worksData";
 import Btn from "../components/Btn";
-
+import Fade from 'react-reveal/Fade';
 import styled from "styled-components";
 
-const MyWorks = () => {
-  return (
+const MyWorks = () => (
     <Container id="myworks">
       <h2>My works</h2>
       {worksData.map(
@@ -20,59 +18,61 @@ const MyWorks = () => {
              description,
              githubUrl,
              projectUrl
-        }) => {
-          return (
-            <Project id={id} key={id}>
-              <VideoContainer>
-                <Videos
-                  key={video}
-                  className="videoTag"
-                  autoPlay
-                  loop
-                  muted
-                  playsinline
-                  loading="lazy"
-                >
-                  <source src={video} type="video/mp4" />
-                </Videos>
-              </VideoContainer>
+        }) => (
+               <Fade bottom>
+                   <Project
+                       id={id}
+                       key={id}
+                   >
+                       <VideoContainer>
+                           <Videos
+                               key={video}
+                               className="videoTag"
+                               autoPlay
+                               loop
+                               muted
+                               playsinline
+                               loading="lazy"
+                           >
+                               <source src={video} type="video/mp4" />
+                           </Videos>
+                       </VideoContainer>
 
-              <DescriptionContainer>
-                <Description>
-                  <h3>{title}</h3>
-                  <IconContainer>
-                    {icons.map((icon) => (
-                      <Icon key={uuidv4()} src={icon} alt="icon" />
-                    ))}
-                  </IconContainer>
-                  <p>{description}</p>
-                </Description>
-                <Btns>
-                    {githubUrl && <a
-                        href={githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        tabIndex="-1"
-                    >
-                        <Btn>Source Code</Btn>
-                    </a>}
-                  <a
-                    href={projectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    tabIndex="-1"
-                  >
-                    <Btn>Visit Website</Btn>
-                  </a>
-                </Btns>
-              </DescriptionContainer>
-            </Project>
-          );
-        }
+                       <DescriptionContainer>
+                           <Description>
+                               <h3>{title}</h3>
+                               <IconContainer>
+                                   {icons.map((icon) => (
+                                       <Icon key={uuidv4()} src={icon} alt="icon" />
+                                   ))}
+                               </IconContainer>
+                               <p>{description}</p>
+                           </Description>
+                           <Btns>
+                               {githubUrl && <a
+                                   href={githubUrl}
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   tabIndex="-1"
+                               >
+                                   <Btn>Source Code</Btn>
+                               </a>}
+                               <a
+                                   href={projectUrl}
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   tabIndex="-1"
+                               >
+                                   <Btn>Visit Website</Btn>
+                               </a>
+                           </Btns>
+                       </DescriptionContainer>
+                   </Project>
+               </Fade>
+          )
       )}
     </Container>
-  );
-}
+  )
 
 const Container = styled.div`
   display: flex;
