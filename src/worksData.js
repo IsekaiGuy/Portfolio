@@ -9,6 +9,9 @@ import styledIcon from "./icons/styled.svg";
 import framerIcon from "./icons/framer.svg";
 import typescript from "./icons/typescript.svg";
 import formikIcon from "./icons/formik.svg";
+import viteIcon from './icons/vitejs.svg';
+import tailwindIcon from './icons/tailwindcss.svg';
+import solidityIcon from './icons/solidity.svg';
 
 //Videos
 import wavesVid from "./videos/Waves.webm";
@@ -17,6 +20,7 @@ import kozhindevVid from "./videos/kozhindev.webm";
 import igniteVid from "./videos/Ignite.webm";
 import marvelVid from "./videos/Marvel.webm";
 import goldenbeeVid from './videos/goldenbee.webm';
+import kryptVid from './videos/Krypt.webm';
 
 const worksData = [
   {
@@ -25,7 +29,7 @@ const worksData = [
     video: wavesVid,
     icons: [reactIcon, sassIcon],
     description: "Music streaming website, with Lo-Fi songs.",
-    githubUrl: "https://github.com/IsekaiGuy/Waves-Music-App",
+    githubUrl: "https://github.com/KruglikDev/Waves-Music-App",
     projectUrl: "https://affectionate-curran-cbb49b.netlify.app/",
   },
   {
@@ -35,7 +39,7 @@ const worksData = [
     icons: [reactIcon, routerIcon, styledIcon, framerIcon],
     description:
       "Landing page for video editing / photo studios, photographers.",
-    githubUrl: "https://github.com/IsekaiGuy/Capture",
+    githubUrl: "https://github.com/KruglikDev/Capture",
     projectUrl: "https://relaxed-nobel-9a0077.netlify.app/",
   },
   {
@@ -45,7 +49,7 @@ const worksData = [
     icons: [reactIcon, routerIcon, formikIcon, sassIcon],
     description:
       "Marvel information portal, where you can find information about any Marvel hero or comicbook.",
-    githubUrl: "https://github.com/IsekaiGuy/Marvel-Portal",
+    githubUrl: "https://github.com/KruglikDev/Marvel-Portal",
     projectUrl: "https://hungry-curie-192bea.netlify.app/",
   },
   {
@@ -62,7 +66,7 @@ const worksData = [
     ],
     description:
       "Videogames search database, with auto updating information about upcoming games. Using Rawg.io API.",
-    githubUrl: "https://github.com/IsekaiGuy/Ignite",
+    githubUrl: "https://github.com/KruglikDev/Ignite",
     projectUrl: "https://stupefied-northcutt-cb1b60.netlify.app/",
   },
   {
@@ -74,7 +78,8 @@ const worksData = [
       reduxIcon,
       routerIcon,
       typescript,
-      sassIcon],
+      sassIcon
+    ],
     description:
       "Website of software development studio from Russia, with more then 10 years of successful work.",
     projectUrl: "https://kozhindev.com/",
@@ -88,10 +93,27 @@ const worksData = [
       reduxIcon,
       routerIcon,
       typescript,
-      sassIcon],
+      sassIcon
+    ],
     description:
         "Website of a major dealer of luxury real estate in Dubai.",
     projectUrl: "https://goldenbee.kozhin.dev/",
+  },
+  {
+    id: uuidv4(),
+    title: "Krypt",
+    video: kryptVid,
+    icons: [
+      solidityIcon,
+      reactIcon,
+      viteIcon,
+      tailwindIcon,
+      typescript,
+    ],
+    description:
+        "Pet project: App to send Ethereum, works through goerli-test-net.",
+    githubUrl: 'https://github.com/KruglikDev/Krypt',
+    projectUrl: "https://whimsical-macaron-da4620.netlify.app/",
   },
   // {
   //   id: "0004",
